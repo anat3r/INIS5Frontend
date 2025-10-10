@@ -1,0 +1,16 @@
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 2px 16px;
+    text-align: center;
+}
+#weather_img_and_temp {
+    display: flex;
+    align-items: end;
+    gap: 20px;
+}
+#weather_img_and_temp *{
+    margin-top: 0;
+    align-items: end;
+    display: flex;
+}
