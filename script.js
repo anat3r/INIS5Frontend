@@ -35,13 +35,7 @@ async function getWeather(city) {
 
 function showWeather(data){
     weather_info.style.display = "block";
-    weather_img.src = data.weather[0].main === 'Clear' ? './src/img/1530392_weather_sun_sunny_temperature_icon.png' :
-                      data.weather[0].main === 'Clouds' ? './src/img/2995000_cloud_weather_cloudy_rain_sun_icon.png' :
-                      data.weather[0].main === 'Rain' ? './src/img/1530362_weather_clouds_cloudy_forecast_rain_icon.png' :
-                      data.weather[0].main === 'Drizzle' ? './src/img/1530362_weather_clouds_cloudy_forecast_rain_icon.png' :
-                      data.weather[0].main === 'Thunderstorm' ? './src/img/1530359_weather_clouds_cloudy_forecast_lightning_icon.png' :
-                      data.weather[0].main === 'Snow' ? './src/img/1530373_snowflake_snow_winter_weather_icon.png' :
-                      './src/img/1530392_weather_sun_sunny_temperature_icon.png';
+    weather_img.src = ` https://openweathermap.org/img/wn/${data.weather[0].icon}.png`
     city_name.textContent = data.name;
     temp.textContent = `${Math.round(data.main.temp)}\u00B0C`;
     weather_description.textContent = data.weather[0].description;
