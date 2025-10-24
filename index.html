@@ -16,7 +16,7 @@
             <section id="search">
                 <input type="text" name="" placeholder="podaj nazwę miasta" id="city_input">
                 <button id="search_button" type="submit">Sprawdź pogodę!</button>
-                <p id="error_msg"></p>
+                <h3 id="error_msg"></h3>
             </section>
             <section id="weather_info">
                 <hr />
@@ -50,19 +50,28 @@
             </section>
         </section>
         <hr />
-        <section id="pollution">
+        <section id="pollution_info">
             <h3>Zanieczyszczenie powiertza</h3>
-            <div>
-                <img src="./src/img/7304531_pm2.5_dust_pollution_smog_dangerous_icon.png" alt="" class="img_pollution">
-                <p id="value"></p>
-                <p>&micro;g/m<sup>3</sup></p>
-            </div>
+            <table id="pollution_table">
+                <tr>
+                    <th id="pollution_name">
+                        <div>Zanieczyszczenie powietrza `</div><img src="./src/img/7304531_pm2.5_dust_pollution_smog_dangerous_icon.png" alt="" class="img_pollution">
+                    </th>
+                </tr>
+                <tr>
+                    <th pol-value="0" class="pol_row">
+                        <p id="pol_value"></p>
+                        <p>&micro;g/m<sup>3</sup></p>
+                    </th>
+                </tr>
+            </table>
         </section>
     </main>
+    <hr style="border: solid 2px darkblue ;"/>
     <footer>
-        <p>projekt WSB Merito Gdańsk 2025</p>
-        <p>Autor: Ruslan B.</p>
+        <h4>projekt WSB Merito Gdańsk 2025</h4>
+        <h4>Autor: Ruslan B.</h4>
     </footer>
-    <script src="./script.js" type="module"></script>
+    <script src="./script.js"></script>
 </body>
 </html>

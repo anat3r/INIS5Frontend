@@ -14,3 +14,47 @@ table, th, td {
     align-items: end;
     display: flex;
 }
+#pollution_table tr,#pollution_table tr th{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    text-align: center;
+    width: 100%;
+    flex-wrap: nowrap;
+    height: auto;
+}
+p {
+    margin: 2px;
+}
+[pol-value]{
+    background-color: #5b0818;
+    color: white;
+    font-weight: bold;
+}
+[pol-value="0"] {
+    background-color: #009866;
+    color: white;
+    font-weight: bold;
+}
+[pol-value="1"] {
+    background-color: #ffcc00;
+    color: black;
+    font-weight: bold;
+}
+[pol-value="2"] {
+    background-color: #ff9933;
+    color: white;
+    font-weight: bold;
+}
+[pol-value="3"], [pol-value="4"]{
+    background-color: #e01717;
+    color: white;
+    font-weight: bold;
+}
+[pol-value="5"] {
+    background-color: #660099;
+    color: white;
+    font-weight: bold;
+}
+
