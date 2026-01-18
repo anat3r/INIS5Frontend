@@ -1,0 +1,348 @@
+@use 'sass:color'
+@use 'sass:list'
+@use 'sass:map'
+@use 'sass:math'
+
+$border-color: black
+$default-pol-bg: #5b0818
+$pol-colors: (
+  0: #009866,
+  1: #ffcc00,
+  2: #ff9933,
+  3: #e01717,
+  4: #e01717,
+  5: #660099
+)
+
+$primary-bg: #fffffc
+$secondary-bg: #ffffff
+$text-color: #333333
+$accent-color: #E06C00 // Changed from #007bff
+$font-family: 'Roboto', sans-serif
+$border-radius: 8px
+$shadow: 0 2px 8px rgba(0, 0, 0, 0.1)
+$transition: all 0.3s ease
+
+// Import Google Fonts (add to HTML head: <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">)
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap')
+
+body
+  font-family: $font-family
+  background-color: $primary-bg
+  color: $text-color
+  margin: 0
+  padding: 0
+  line-height: 1.6
+
+.header
+  background: linear-gradient(135deg, $secondary-bg 0%, color.adjust($secondary-bg, $lightness: 5%) 100%)
+  padding: 10px 20px
+  text-align: center
+  box-shadow: $shadow
+  border-radius: 0 0 $border-radius $border-radius
+
+  .header-title
+    margin: 0 0 10px 0
+    color: $accent-color
+    font-weight: 700
+    font-size: 1.5rem
+
+  .nav
+    display: flex
+    justify-content: center
+    gap: 20px
+
+    a
+      color: $accent-color
+      text-decoration: none
+      font-weight: 500
+      transition: $transition
+
+      &:hover
+        color: color.adjust($accent-color, $lightness: -10%)
+
+.main
+  max-width: 1200px
+  margin: 20px auto
+  padding: 20px
+  background-color: $primary-bg
+
+.section
+  background-color: $secondary-bg
+  border-radius: $border-radius
+  box-shadow: $shadow
+  margin-bottom: 20px
+  height: fit-content
+  padding: 20px
+
+.section-title
+  text-align: center
+  margin-top: 4px
+  margin-bottom: 12px
+  color: $accent-color
+  font-weight: 700
+
+.card
+  background-color: $secondary-bg
+  border-radius: $border-radius
+  box-shadow: $shadow
+  padding: 15px
+  margin: 10px
+  text-align: center
+  transition: $transition
+  width: 200px
+  cursor: pointer
+
+  &:hover
+    transform: translateY(-5px)
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15)
+  &:active
+    box-shadow: none
+
+  .card-title
+    margin: 0 0 10px 0
+    color: $accent-color
+    font-weight: 700
+
+  .card-icon
+    width: 50px
+    height: 50px
+
+  .card-content
+    p
+      margin: 5px 0
+      font-size: 0.9rem
+
+.capitals-list, .country-cities-list
+  display: flex
+  flex-wrap: wrap
+  justify-content: center
+
+.footer
+  background: linear-gradient(135deg, color.adjust($secondary-bg, $lightness: 2%) 0%, $secondary-bg 100%)
+  text-align: center
+  padding: 5px 10px
+  margin-top: 10px
+  box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.1)
+  border-radius: $border-radius 0 0 0
+
+  .footer-text
+    margin: 2px 0
+    font-weight: 400
+    font-size: 0.9rem
+    color: color.adjust($text-color, $lightness: 20%)
+
+.search-section
+  display: flex
+  flex-direction: column
+  align-items: center
+  gap: 10px
+  margin-bottom: 20px
+
+  .search-input
+    padding: 10px
+    border: 1px solid #ccc
+    border-radius: $border-radius
+    width: 100%
+    max-width: 300px
+    font-size: 16px
+    transition: $transition
+
+    &:focus
+      outline: none
+      border-color: $accent-color
+      box-shadow: 0 0 5px rgba(0, 123, 255, 0.5)
+
+  .search-button
+    padding: 10px 20px
+    background-color: $accent-color
+    color: white
+    border: none
+    border-radius: $border-radius
+    cursor: pointer
+    font-size: 16px
+    transition: $transition
+
+    &:hover
+      background-color: color.adjust($accent-color, $lightness: -10%)
+      box-shadow: $shadow
+
+.error-message
+  margin-top: 0
+  margin-bottom: 0
+  color: #e01717
+  font-weight: 500
+
+.table, .table-header, .table-cell
+  border-collapse: collapse
+  padding: 10px 16px
+  text-align: center
+  font-size: 14px
+
+.table
+  width: 100%
+  margin-top: 20px
+  border-radius: $border-radius
+  overflow: hidden
+  box-shadow: $shadow
+
+.table-header
+  background-color: $primary-bg
+  font-weight: 700
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.1)
+
+.table-cell
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.05)
+
+.weather-display
+  display: flex
+  align-items: end
+  gap: 20px
+  margin: 20px 0
+
+  *
+    margin-top: 0
+    align-items: end
+    display: flex
+
+  .weather-icon
+    width: 64px
+    height: 64px
+
+  .temperature
+    font-size: 24px
+    font-weight: 700
+
+.weather-description
+  font-style: italic
+  text-transform: capitalize
+  margin-left: 20px
+  font-size: 20px
+
+#pollution_table
+  tr, tr th
+    display: flex
+    align-items: center
+    justify-content: center
+    gap: 8px
+    text-align: center
+    width: 100%
+    flex-wrap: nowrap
+    height: auto
+    padding: 10px
+
+  .pollution-icon
+    width: 32px
+    height: 32px
+
+.paragraph
+  margin: 5px
+
+[pol-value]
+  background-color: $default-pol-bg
+  color: white
+  font-weight: bold
+  padding: 10px
+  border-radius: $border-radius
+  transition: $transition
+
+@each $value, $color in $pol-colors
+  [pol-value="#{$value}"]
+    background-color: $color
+    @if $value == 1
+      color: black
+    @else
+      color: white
+    font-weight: bold
+
+.weather-info
+  // Basic section styling (similar to .section)
+  background-color: $secondary-bg
+  border-radius: $border-radius
+  box-shadow: $shadow
+  margin-bottom: 20px
+  padding: 20px
+
+.city-name
+  // Basic heading styling
+  text-align: center
+  margin-bottom: 20px
+  color: $accent-color
+  font-weight: 700
+
+.pollution-section
+  // Basic section styling (similar to .section)
+  background-color: $secondary-bg
+  border-radius: $border-radius
+  box-shadow: $shadow
+  margin-bottom: 20px
+  padding: 20px
+
+.pol_row
+  // Mirroring [pol-value] for class-based usage
+  background-color: $default-pol-bg
+  color: white
+  font-weight: bold
+  padding: 10px
+  border-radius: $border-radius
+  transition: $transition
+
+@each $value, $color in $pol-colors
+  .pol_row[pol-value="#{$value}"], [pol-value="#{$value}"]
+    background-color: $color
+    @if $value == 1
+      color: black
+    @else
+      color: white
+    font-weight: bold
+
+@media (max-width: 768px)
+  .main
+    padding: 10px
+
+  .weather-display
+    flex-direction: column
+    align-items: center
+    gap: 10px
+
+  .table
+    font-size: 12px
+
+    .table-header, .table-cell
+      padding: 5px 8px
+
+  .search-section
+    .search-input, .search-button
+      max-width: 100%
+
+// Skeleton loading styles
+.skeleton
+  background-color: #f0f0f0
+  animation: shimmer 1.5s infinite linear
+  border-radius: $border-radius
+
+.skeleton-title
+  height: 20px
+  width: 80%
+  margin: 10px auto
+  background-color: #e0e0e0
+
+.skeleton-icon
+  height: 50px
+  width: 50px
+  margin: 10px auto
+  background-color: #e0e0e0
+
+.skeleton-content div
+  height: 12px
+  width: 90%
+  margin: 5px auto
+  background-color: #e0e0e0
+
+@keyframes shimmer
+  0%
+    opacity: 1
+  50%
+    opacity: 0.5
+  100%
+    opacity: 1

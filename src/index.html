@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header class="header">
+        <h1 class="header-title">WeatherFinder | Aplikacja pogodowa (z Open Meteo)</h1>
+        <nav class="nav">
+            <a href="#search-section">Szukaj miasta</a>
+            <a href="#capitals-section">Stolice świata</a>
+            <a href="#country-cities-section">Miasta w Twoim kraju</a>
+        </nav>
+    </header>
+    <main id="box" class="main">
+        <!-- Zawartość będzie dodana przez JavaScript -->
+        <section id="search-section" class="section">
+            <section id="search" class="search-section">
+                <h2 class="section-title">Sprawdź pogodę w twoim mieście</h2>
+                <input type="search" name="search-input" placeholder="Podaj nazwę miasta" id="city_input" class="search-input">
+                <button id="search_button" type="submit" class="search-button">Sprawdź pogodę!</button>
+                <h2 id="error_msg" class="error-message"></h2>
+            </section>
+            <section id="weather_info" class="weather-info">
+                <h2 id="city_name" class="city-name"></h2>
+                
+                <div id="weather_img_and_temp" class="weather-display">
+                    <div>
+                        <img src="./assets/weather-placeholder.png" sizes="48" alt="current weather" id="weather_img" class="weather-icon">
+                        <p id="temp" class="temperature"></p>
+                    </div>
+                    <p id="weather_description" class="weather-description"></p>
+                </div>
+                <table id="temp_table" class="table">
+                    <tr>
+                        <th class="table-header">Temperatura odczuwalna</th>
+                        <th class="table-header">Ciśninie</th>
+                        <th class="table-header">Wilgotność</th>
+                        <th class="table-header">Prędkość wiatru</th>
+                        <th class="table-header">Widoczność</th>
+                        <th class="table-header">Zachmurzenie</th>
+                    </tr>
+                    <tr id ="temp_data">
+                        <td class="table-cell" id="feels_like">-</td>
+                        <td class="table-cell" id="pressure">-</td>
+                        <td class="table-cell" id="humidity">-</td>
+                        <td class="table-cell" id="wind_speed">-</td>
+                        <td class="table-cell" id="visibility">-</td>
+                        <td class="table-cell" id="clouds">-</td>
+                    </tr>
+                </table>
+            </section>
+            <section id="pollution_info" class="pollution-section">
+                <h2 class="section-title">Zanieczyszczenie powietrza</h2>
+                <table id="pollution_table" class="table">
+                    <tr>
+                        <th id="pollution_name" class="table-header">
+                            <div class="paragraph">Zanieczyszczenie powietrza `</div><img src="./assets/pollution.png" alt="" class="pollution-icon">
+                        </th>
+                    </tr>
+                    <tr>
+                        <th pol-value="0" class="pol_row table-header">
+                            <p id="pol_value" class="paragraph"></p>
+                            <p class="paragraph">&micro;g/m<sup>3</sup></p>
+                        </th>
+                    </tr>
+                </table>
+            </section>
+        </section>
+        <section id="capitals-section" class="section">
+            <h2 class="section-title">Stolice świata</h2>
+            <div class="capitals-list"></div>
+        </section>
+        <section id="country-cities-section" class="section">
+            <h2 class="section-title">Miasta w Twoim kraju</h2>
+            <div class="country-cities-list"></div>
+        </section>
+    </main>
+    <footer class="footer">
+        <h4 class="footer-text">projekt WSB Merito Gdańsk 2025</h4>
+        <h4 class="footer-text">Autor: Ruslan Bedychev 82179</h4>
+    </footer>
+</body>
+</html>
