@@ -15,6 +15,7 @@ module.exports = (env, argv) => {
       path: path.resolve(__dirname, 'dist'),
       filename: isProduction ? 'js/[name].[contenthash].js' : 'js/[name].js',
       clean: true,
+      publicPath: isProduction ? '/INIS5Frontend/' : '',
     },
 
     devServer: {
@@ -32,7 +33,7 @@ module.exports = (env, argv) => {
         },
         {
           test: /\.(png|jpe?g|gif|webp|svg|ico)$/i,
-          type: 'asset/resource',               // always emit file (no inline)
+          type: 'asset/resource',
           generator: {
             filename: 'assets/[name][ext][query]',
           },
@@ -73,7 +74,7 @@ module.exports = (env, argv) => {
 
       minimizer: isProduction
         ? [
-          '...',                      
+          '...',
           new CssMinimizerPlugin({
             minimizerOptions: {
               preset: ['default', { discardComments: { removeAll: true } }],
@@ -84,7 +85,7 @@ module.exports = (env, argv) => {
     },
 
     resolve: {
-      extensions: ['.js', '.scss', '.sass'],
+      extensions: ['.js', '.json'],
     },
   };
 };
