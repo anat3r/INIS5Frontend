@@ -8,7 +8,7 @@
     "start": "webpack serve --open",
     "build": "webpack --mode production"
   },
-  "keywords": [],
+  "keywords": ["Study Project"],
   "author": "Ruslan Bedychev",
   "license": "ISC",
   "packageManager": "pnpm@10.25.0",
